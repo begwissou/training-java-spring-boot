@@ -1,0 +1,6 @@
+Pratique exemples de unctional interface intégrées à java 8
+Optional
+Streams
+Jhipster
+
+
