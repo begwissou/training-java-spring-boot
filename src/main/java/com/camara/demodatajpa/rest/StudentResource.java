@@ -2,6 +2,7 @@ package com.camara.demodatajpa.rest;
 
 import com.camara.demodatajpa.config.ApplicationProperties;
 import com.camara.demodatajpa.domain.Student;
+import com.camara.demodatajpa.domain.views.StudentViews;
 import com.camara.demodatajpa.repository.StudentRepository;
 import com.camara.demodatajpa.services.StudentService;
 import java.util.Optional;
@@ -71,5 +72,16 @@ public class StudentResource {
       " " +
       applicationProperties.getStudents().getNoms()
     );
+  }
+
+  @GetMapping("/list/projection")
+  private Page<StudentViews> getAllStudentProjection(Pageable pageable)
+  {
+    return studentService.findAllProjectedBy(pageable, StudentViews.class);
+  }
+  @GetMapping("/list/projectionV2")
+  private Page<Student> getAllStudentProjectionV2(Pageable pageable)
+  {
+    return studentService.findAllProjectedBy(pageable, Student.class);
   }
 }

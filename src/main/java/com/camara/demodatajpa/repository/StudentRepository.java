@@ -17,4 +17,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
   //   nativeQuery = true
   // ) //JPQL
   Page<Student> findAllByNameContaining(String termOrigin, Pageable pageable);
+
+  <T> Page<T> findAllProjectedBy(Pageable pageable, Class<T> t);
 }
